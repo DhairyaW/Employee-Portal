@@ -1,0 +1,18 @@
+<template>
+    <lightning-card class="card">
+        <div class="datetime">
+            <p class="inline-element"><strong>Date: </strong> {todayDate}</p>
+            <p class="inline-element"><strong>Time:</strong> {currentTime}</p>
+            <div class="times">
+                <p class="inline-element"><strong>Punch In: </strong> {punchInTime}</p>
+                <p class="inline-element"><strong>Punch Out: </strong> {punchOutTime}</p>
+                <p class="inline-element"><strong>Total Time: </strong> {totalTime}</p>
+            </div>
+        <div class="button">
+                <lightning-button class="inline-element" label="Punch In" onclick={handlePunchIn} disabled={isPunchInDisabled}></lightning-button>
+                <lightning-button class="inline-element" label="Punch Out" onclick={handlePunchOut} disabled={isPunchOutDisabled}></lightning-button>
+                <lightning-button class="inline-element" label="Work From Home" onclick={handleWFH} disabled={isWFHDisabled}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

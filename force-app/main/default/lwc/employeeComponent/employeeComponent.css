@@ -1,0 +1,27 @@
+.inline-element {
+    display: inline-flex;
+    padding: 10px;
+}
+
+.card {
+    display: inline;
+    padding: auto;
+    margin: auto;
+}
+
+.datetime {
+    /* float: left; */
+}
+
+.times{
+    display: inline;
+    padding-left: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: inline;
+    justify-content: center;
+    float: right;
+}

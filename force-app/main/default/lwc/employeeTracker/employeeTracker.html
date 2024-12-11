@@ -1,0 +1,53 @@
+<template>
+    <lightning-card class="container">
+        <div>
+            <p style="padding-left: 10px;">Status</p>
+            <div class="dropdown">
+                <button style="padding-left: 10px;" class="dropdown-button" onclick={toggleDropdown}>{selectedViewLabel}</button>
+                <template if:true={isDropdownOpen}>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item" data-value="present" onclick={handleViewSelection}>Present</li>
+                        <li class="dropdown-item" data-value="absent" onclick={handleViewSelection}>Absent</li>
+                        <li class="dropdown-item" data-value="workingFromHome" onclick={handleViewSelection}>Working From Home</li>
+                    </ul>
+                </template>
+            </div>
+            <template if:true={isPresentView}>
+                <div class="view">
+                    <h2>Present Employees:</h2><br><br>
+                    <template if:true={presentEmployees.length}>
+                        <ul>
+                            <template for:each={presentEmployees} for:item="employee">
+                                <li key={employee.Id}><h1><strong>{employee.Employee_Name__c}</strong></h1><br></li>
+                            </template>
+                        </ul>
+                    </template>
+                </div>
+            </template>
+            <template if:true={isAbsentView}>
+                <div class="view">
+                    <h2>Absent Employees:</h2><br><br>
+                    <template if:true={absentEmployees.length}>
+                        <ul>
+                            <template for:each={absentEmployees} for:item="employee">
+                                <li key={employee.Id}><h1><strong>{employee.Employee_Name__c}</strong></h1><br></li>
+                            </template>
+                        </ul>
+                    </template>
+                </div>
+            </template>
+            <template if:true={isWorkingFromHomeView}>
+                <div class="view">
+                    <h2>Working From Home Employees:</h2><br><br>
+                    <template if:true={workingFromHomeEmployees.length}>
+                        <ul>
+                            <template for:each={workingFromHomeEmployees} for:item="employee">
+                                <li key={employee.Id}><h1><strong>{employee.Employee_Name__c}</strong></h1><br></li>
+                            </template>
+                        </ul>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
